@@ -32,7 +32,7 @@ export default {
       return this.visibleContacts.sort((c1, c2) => c2.popularity - c1.popularity);
     },
 
-    removeContact() {
+    removeContact(id) {
       //console.log("entro?SI");
     }
   },
@@ -84,7 +84,7 @@ export default {
               alt="emmy trophy"
             />
           </td>
-          <td><button @click="removeContact">Delete</button></td>
+          <td><button @click="removeContact(contact.id)">Delete</button></td>
         </tr>
       </tbody>
     </table>
