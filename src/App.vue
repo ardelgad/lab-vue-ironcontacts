@@ -33,7 +33,7 @@ export default {
     },
 
     removeContact() {
-      
+      //console.log("entro?SI");
     }
   },
 };
@@ -84,7 +84,7 @@ export default {
               alt="emmy trophy"
             />
           </td>
-          <td><button>Delete</button></td>
+          <td><button @click="removeContact">Delete</button></td>
         </tr>
       </tbody>
     </table>
