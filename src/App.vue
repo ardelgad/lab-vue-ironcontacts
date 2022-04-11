@@ -32,9 +32,14 @@ export default {
       return this.visibleContacts.sort((c1, c2) => c2.popularity - c1.popularity);
     },
 
-    removeContact(id) {
-      //console.log("entro?SI");
-    }
+    deleteContact(id) {
+      console.log(id);
+        this.$emit('delete', id)
+    },
+
+    Delete(id) {
+      this.visibleContacts = this.visibleContacts.filter((contact) => contact.id !== id)
+    },
   },
 };
 </script>
@@ -64,7 +69,7 @@ export default {
         </tr>
       </thead>
       <tbody>
-        <tr v-for="contact in visibleContacts" :key="contact.id">
+        <tr v-for="contact in visibleContacts" :key="contact.id" @delete="Delete">
           <td>
             <img class="photo" :src="contact.pictureUrl" />
           </td>
@@ -84,7 +89,7 @@ export default {
               alt="emmy trophy"
             />
           </td>
-          <td><button @click="removeContact(contact.id)">Delete</button></td>
+          <td><button @click="deleteContact(visibleContacts.id)">Delete</button></td>
         </tr>
       </tbody>
     </table>
